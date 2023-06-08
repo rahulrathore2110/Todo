@@ -5,19 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
-
+    <!-- Links of other dependecy files -->
     <link rel="stylesheet" href="styles.css" />
     <script src="drag.js" defer></script>
     <script src="todo.js" defer></script>
+
+    
   </head>
   <body>
+
+    
+    <!-- outer board of the application -->
     <div class="board">
+        <p id="note">* Todo  board section is scrollable horizontally and vertically. if you are using in phone you scroll horizontally</p>
+        <!-- todo craaton form start fom here -->
       <form id="todo-form">
         <input type="text" placeholder="TODO Description" id="todo-input" />
         <button type="submit"> -> Add</button>
+        <button id="reset">Reset</button>
       </form>
 
+ 
+
+      <!-- showing all todos -->
       <div class="tasks">
+
+       
+        <!-- todos to be doing -->
         <div class="task-board" id="todo-start">
           <h3 class="heading">TODO</h3>
 
@@ -25,7 +39,7 @@
           <p class="task" draggable="true">Get healthy breakfast</p>
           <p class="task" draggable="true">Go work</p>
         </div>
-
+        <!-- todos is done -->
         <div class="task-board">
           <h3 class="heading">DONE</h3>
 
@@ -37,3 +51,11 @@
     </div>
   </body>
 </html>
+<script>
+
+    // implement reset functionality
+    document.querySelector("#reset").addEventListener("click",resetDefault)
+    function resetDefault(){
+        window.location.reload()
+    }
+</script>

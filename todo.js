@@ -1,6 +1,10 @@
+// get the element from the index file
+
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
-const todoLane = document.getElementById("todo-start");
+const todoStart = document.getElementById("todo-start");
+
+// Set event listneer to save the todos
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -8,10 +12,14 @@ form.addEventListener("submit", (e) => {
 
   if (!value) return;
 
+  // crate new task
+
   const newTask = document.createElement("p");
   newTask.classList.add("task");
   newTask.setAttribute("draggable", "true");
   newTask.innerText = value;
+
+  //  set a draggable event to the task
 
   newTask.addEventListener("dragstart", () => {
     newTask.classList.add("is-dragging");
@@ -21,7 +29,8 @@ form.addEventListener("submit", (e) => {
     newTask.classList.remove("is-dragging");
   });
 
-  todoLane.appendChild(newTask);
+    // appent the task to the todo-start
+  todoStart.appendChild(newTask);
 
   input.value = "";
 });
